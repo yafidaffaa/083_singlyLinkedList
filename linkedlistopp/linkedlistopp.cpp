@@ -108,4 +108,66 @@ int main() {
 	List mhs;
 	int nim;
 	char ch;
+
+	while (1) {
+		cout << endl << "Menu";
+		cout << endl << "1. Menambahkan data kedalam list" << endl;
+		cout << "2. Menghapus data dari dalam list" << endl;
+		cout << "3. Menampilkan semua data didalam list" << endl;
+		cout << "4. Mencari data dalam list" << endl;
+		cout << "5. Keluar" << endl;
+		cout << endl << "Masukkan pilihan (1-5): ";
+		cin >> ch;
+		switch (ch) {
+		case '1': {
+			mhs.addNode();
+		}
+				break;
+
+		case '2': {
+			if (mhs.listEmpty()) {
+				cout << endl << "List Kosong" << endl;
+				break;
+			}
+			cout << endl << "\nMasukan no mahasiswa yang akan dihapus : ";
+			cin >> nim;
+			if (mhs.delNode(nim) == false)
+				cout << endl << "Data tidak ditemukan" << endl;
+			else
+				cout << endl << "Data dengan nomor mahasiswa " << nim << " berhasil dihapus	" << endl;
+		}
+				break;
+		case '3': {
+			mhs.traverse();
+		}
+				break;
+
+		case '4': {
+			if (mhs.listEmpty() == true) {
+				cout << "\nList Kosong\n";
+				break;
+			}
+			Node* previous, * current;
+			cout << endl << "Masukkan no mahasiswa yang dicari : ";
+			cin >> nim;
+			if (mhs.Search(nim, &previous, &current) == false)
+				cout << endl << "Data tidak ditemukan" << endl;
+			else {
+				cout << endl << "Data ditemukan" << endl;
+				cout << "\nNo Mahasiswa: " << current->noMhs;
+				cout << "\n\nNama " << current->nama;
+				cout << "\n";
+			}
+		}
+				break;
+		case '5': {
+			exit(0);
+		}
+				break;
+		default: {
+			cout << "Pilihan salah !." << endl;
+		}
+			   break;
+		}
+	} 
 }
