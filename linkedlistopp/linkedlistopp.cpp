@@ -35,5 +35,10 @@ void List::addNode() {/*Menambahkan sebuah node kedalam list*/
 	nodeBaru->noMhs = nim;
 	strcpy_s(nodeBaru->nama, nm);
 
-	
+	if (START == NULL || nim <= START->noMhs) {
+		if ((START != NULL) && (nim == START->noMhs)) {
+			cout << "\nDuplikasi noMhs tidak diijinkan\n";
+			return;
+		}
+	}
 }
