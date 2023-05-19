@@ -19,3 +19,7 @@ public:
 	bool delNode(int element);
 	void traverse();
 };
+
+List::List() {
+	START = NULL;
+}
