@@ -14,7 +14,7 @@ class List {
 public:
 	List();
 	void addNode();
-	bool Search(int nim, Node** current, Node previous);
+	bool Search(int nim, Node** current, Node** previous);
 	bool listEmpty();
 	bool delNode(int element);
 	void traverse();
@@ -40,5 +40,9 @@ void List::addNode() {/*Menambahkan sebuah node kedalam list*/
 			cout << "\nDuplikasi noMhs tidak diijinkan\n";
 			return;
 		}
+		nodeBaru->next = START;
+		START = nodeBaru;
+		return;
 	}
+
 }
